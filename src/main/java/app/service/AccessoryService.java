@@ -17,9 +17,11 @@ public class AccessoryService {
 
     private final AccessoryRepository accessoryRepository;
 
+
     public AccessoryService(AccessoryRepository accessoryRepository) {
         this.accessoryRepository = accessoryRepository;
     }
+
 
     public List<Accessory> getAllAccessories() {
         return accessoryRepository.findAll();
@@ -45,10 +47,8 @@ public class AccessoryService {
         return accessoryRepository.findById(id).orElse(null);
     }
 
-    public void deleteAccessory(UUID id){
+    public void deleteAccessory(UUID id) {
         Optional<Accessory> accessoryOptional = accessoryRepository.findById(id);
         accessoryRepository.delete(accessoryOptional.get());
     }
-
-
 }
